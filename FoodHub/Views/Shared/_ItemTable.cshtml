@@ -1,0 +1,59 @@
+@model IEnumerable<Item>
+
+<div class="table-container">
+    <table class="table table-striped modern-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Energy (kcal)</th>
+                <th>Carbohydrates (g)</th>
+                <th>Total Fat (g)</th>
+                <th>Saturated Fat (g)</th>
+                <th>Unsaturated Fat (g)</th>
+                <th>Sugar (g)</th>
+                <th>Dietary Fiber (g)</th>
+                <th>Protein (g)</th>
+                <th>Salt (g)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ItemId</td>
+                    <td>
+                        <a asp-controller="Item"
+                           asp-action="Details"
+                           asp-route-id="@item.ItemId"
+                           class="item-link">@item.Name</a>
+                    </td>
+                    <td>@item.Description</td>
+                    <td>
+                        <img src="@item.ImageUrl" alt="@item.Name" class="item-image" />
+                    </td>
+                    <td>@item.Energy</td>
+                    <td>@item.Carbohydrate</td>
+                    <td>@item.TotalFat</td>
+                    <td>@item.SaturatedFat</td>
+                    <td>@item.UnsaturedFat</td>
+                    <td>@item.Sugar</td>
+                    <td>@item.DietaryFiber ?? 0</td>
+                    <td>@item.Protein</td>
+                    <td>@item.Salt</td>
+                    <td>
+                        <a asp-action="Update" asp-route-id="@item.ItemId" class="action-link">Update</a> 
+                        <a asp-action="Delete" asp-route-id="@item.ItemId" class="action-link">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p class="mt-4">
+        <a class="btn btn-primary create-btn" asp-controller="Item" asp-action="Create">Create New Item</a>
+    </p>
+</div>

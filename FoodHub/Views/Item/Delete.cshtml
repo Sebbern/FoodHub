@@ -1,0 +1,120 @@
+@model Item
+
+<h2>Delete Item</h2>
+
+<h3>Are you sure you want to delete this item?</h3>
+
+<div>
+    <h4>Item Details</h4>
+    <hr />
+    <dl class="row">
+        <!-- Item ID -->
+        <dt class="col-sm-2">
+            Item Id
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ItemId
+        </dd>
+
+        <!-- Name -->
+        <dt class="col-sm-2">
+            Name
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Name
+        </dd>
+
+        <!-- Description -->
+        <dt class="col-sm-2">
+            Description
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Description
+        </dd>
+
+        <!-- Image URL -->
+        <dt class="col-sm-2">
+            Image Url
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ImageUrl
+        </dd>
+
+        <!-- Energy -->
+        <dt class="col-sm-2">
+            Energy
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Energy kcal
+        </dd>
+
+        <!-- Carbohydrate -->
+        <dt class="col-sm-2">
+            Carbohydrate
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Carbohydrate g
+        </dd>
+
+        <!-- Total Fat -->
+        <dt class="col-sm-2">
+            Total Fat
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TotalFat g
+        </dd>
+
+        <!-- Saturated Fat -->
+        <dt class="col-sm-2">
+            Saturated Fat
+        </dt>
+        <dd class="col-sm-10">
+            @Model.SaturatedFat g
+        </dd>
+
+        <!-- Unsaturated Fat -->
+        <dt class="col-sm-2">
+            Unsaturated Fat
+        </dt>
+        <dd class="col-sm-10">
+            @Model.UnsaturedFat g
+        </dd>
+
+        <!-- Sugar -->
+        <dt class="col-sm-2">
+            Sugar
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Sugar g
+        </dd>
+
+        <!-- Dietary Fiber (optional) -->
+        <dt class="col-sm-2">
+            Dietary Fiber
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DietaryFiber g
+        </dd>
+
+        <!-- Protein -->
+        <dt class="col-sm-2">
+            Protein
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Protein g
+        </dd>
+
+        <!-- Salt -->
+        <dt class="col-sm-2">
+            Salt
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Salt g
+        </dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" asp-route-itemid="@Model.ItemId" method="post">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Table" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
