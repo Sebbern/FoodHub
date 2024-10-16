@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "bootstrap": "^5.3.3",
-    "jquery": "^3.7.1",
-    "jquery-validation-unobtrusive": "^4.0.0"
-  }
-}
